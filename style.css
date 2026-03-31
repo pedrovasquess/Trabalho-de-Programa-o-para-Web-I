@@ -1,0 +1,193 @@
+body{
+    margin: 0;
+    padding: 0;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(27, 27, 58);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    .Title {
+    color:gold;
+    font-size: 18px;
+    }
+
+    h1 {
+    color: white;
+    font-style: arial;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    align-self: flex-start;
+    margin-left: 10px; 
+    }
+
+    .menu {
+    align-self: flex-end; 
+    margin-top: 10px;
+    margin-right: 20px; 
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 25px; 
+    
+
+    .menu span {
+        display: flex;
+        align-items: center;
+    }
+
+    .menu i {
+        margin-right: 6px;
+    }
+
+    .incio {
+        color: gold;
+    }
+
+    }
+}
+    
+.logo {
+    position: relative;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;
+    background-image: url('Logo-Vaquejada-top.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    h2 {
+        color: rgb(136, 117, 8);;
+        font-size: 48px;
+        font-weight: bold;
+    }
+
+    p {
+        color: white;
+        font-size: 18px;
+        max-width: 600px;
+    }
+
+    .logo h2, .logo p {
+        position: relative;
+        z-index: 1;
+    }
+
+    .logo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.5); 
+    }
+
+    .botoes {
+    display: flex;
+    gap: 20px;
+    justify-content: center; 
+    margin-top: 20px;
+    }
+
+    .destaque {
+    background-color: #d89c00;
+    color: white;
+    }
+
+    .outline {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    }
+
+    .btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    transition: 0.3s;
+    }
+}
+   
+.ranking {
+    background-color: #f5f5f5;
+    padding: 60px 40px;
+    
+
+    .ranking-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    }
+
+    .ranking-topo h2 {
+        font-size: 28px;
+    }
+
+    .ranking-topo a {
+        color: #d89c00;
+        text-decoration: none;
+    }
+
+    .cards {
+    display: flex;
+    gap: 20px;
+    }
+
+    .card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    border: 2px solid #d89c00;
+    }
+
+    .info {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    }
+
+    .info strong {
+        font-size: 20px;
+        color: #d89c00;
+    }
+
+    .info span {
+        display: block;
+        font-size: 12px;
+        color: gray;
+    }
+
+    .card {
+    transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+}
+    
