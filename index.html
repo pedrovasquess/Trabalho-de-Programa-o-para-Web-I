@@ -7,16 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
         <h1><span><i class="bi bi-trophy Title"></i> Vaquejada Pro</span></h1>
         <div class="menu">
-            <span><i class="bi bi-house incio"></i> Início</span>
-            <span><i class="bi bi-trophy subtitle"></i> Ranking</span>
-            <span><i class="bi bi-calendar"></i> Eventos</span>
-            <span><i class="bi bi-person-plus"></i> Inscrição</span>
-            <span><i class="bi bi-arrow-right"></i> Entrar</span>
+            <a href="index.html" class="menu-item-inicio"><span><i class="bi bi-house incio"></i> Início</span></a>
+            <a href="ranking.html" class="menu-item"><span><i class="bi bi-trophy subtitle"></i> Ranking</span></a>
+            <a href="eventos.html" class="menu-item"><span><i class="bi bi-calendar"></i> Eventos</span></a>
+            <a href="inscricao.html" class="menu-item"><span><i class="bi bi-person-plus"></i> Inscrição</span></a>
+            <a href="login.html" class="menu-item"><span><i class="bi bi-arrow-right"></i> Entrar</span></a>
         </div>
     </div>
 
@@ -39,80 +40,106 @@
     </div>
 
     <div class="ranking">
-
-        <div class="ranking-topo">
-            <h2>Melhores Vaqueiros</h2>
-            <a href="#">Ver ranking completo →</a>
-        </div>
-
-        <div class="cards">
-            <div class="card">
-                <h3>#1</h3>
-                <p class="nome">João Silva</p>
-                <p>"Trovão"</p>
-                <p class="local">Campina Grande, PB</p>
-
-                <div class="info">
-                    <div>
-                        <strong>200</strong>
-                        <span>Pontos</span>
-                    </div>
-                    <div>
-                        <strong>2</strong>
-                        <span>Vitórias</span>
-                    </div>
-                </div>
+        <div class="container-central">
+            <div class="ranking-topo">
+                <h2>Melhores Vaqueiros</h2>
+                <a href="#">Ver ranking completo →</a>
             </div>
 
-            <div class="card">
-                <h3>#2</h3>
-                <p class="nome">João Silva</p>
-                <p>"Trovão"</p>
-                <p class="local">Campina Grande, PB</p>
+            <div class="cards">
+                <div class="card">
+                    <span class="tag">PUXADOR</span>
+                    <h1 class="posicao">#1</h1>
+                    <p class="nome"><strong>João Silva</strong></p>
+                    <p>"Trovão"</p>
+                    <p class="local">Campina Grande, PB</p>
 
-                <div class="info">
-                    <div>
-                        <strong>200</strong>
-                        <span>Pontos</span>
-                    </div>
-                    <div>
-                        <strong>2</strong>
-                        <span>Vitórias</span>
+                    <div class="info">
+                        <div>
+                            <strong>200</strong>
+                            <span>Pontos</span>
+                        </div>
+                        <div>
+                            <strong>2</strong>
+                            <span>Vitórias</span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h3>#3</h3>
-                <p class="nome">João Silva</p>
-                <p>"Trovão"</p>
-                <p class="local">Campina Grande, PB</p>
+                <div class="card">
+                    <span class="tag">ESTEREIRO</span>
+                    <h1 class="posicao">#2</h1>
+                    <p class="nome"><strong>João Silva</strong></p>
+                    <p>"Trovão"</p>
+                    <p class="local">Campina Grande, PB</p>
 
-                <div class="info">
-                    <div>
-                        <strong>200</strong>
-                        <span>Pontos</span>
+                    <div class="info">
+                        <hr>
+                        <div>
+                            <strong>200</strong>
+                            <span>Pontos</span>
+                        </div>
+                        <div>
+                            <strong>2</strong>
+                            <span>Vitórias</span>
+                        </div>
                     </div>
-                    <div>
-                        <strong>2</strong>
-                        <span>Vitórias</span>
+                </div>
+
+                <div class="card">
+                    <span class="tag">ESTEREIRO</span>
+                    <h1 class="posicao">#3</h1>
+                    <p class="nome"><strong>João Silva</strong></p>
+                    <p>"Trovão"</p>
+                    <p class="local">Campina Grande, PB</p>
+
+                    <div class="info">
+                        <div>
+                            <strong>200</strong>
+                            <span>Pontos</span>
+                        </div>
+                        <div>
+                            <strong>2</strong>
+                            <span>Vitórias</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="Info">
-        <div class="Info-topo">
-            <h2> Próximos Eventos </h2>
-            <a href="#"> Ver Todos → </a>
-        </div>
+    <div class="eventos">
+        <div class="container-central">
+            <div class="eventos-topo">
+                <h2> Próximos Eventos </h2>
+                <a href="#"> Ver Todos → </a>
+            </div>
 
-        
+            <div class="boxes-container">
+                <div class="boxes">
+                    <p><span><i class="bi bi-calendar"></i> 14 de abril de 2026</span></p>
+                    <h3><strong>Copa Nordeste de Vaquejada</strong></h3>
+                    <p class="local">Campina Grande, PB</p>
+                </div>
+
+                <div class="boxes">
+                    <p><span><i class="bi bi-calendar"></i> 09 de maio de 2026</span></p>
+                    <h3><strong>Torneio do Agreste</strong></h3>
+                    <p class="local">Garanhuns, PE</p>
+                </div>
+
+                <div class="boxes">
+                    <p><span><i class="bi bi-calendar"></i> 19 de junho de 2026</span></p>
+                    <h3><strong>Grande Prêmio Baiano</strong></h3>
+                    <p class="local">Feira de Santana, BA</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-
-
+    <div class="Informações">
+        <p>© 2026 Vaquejada Pro. Todos os direitos reservados.</p>
+    </div>
   
 </body>
 </html>

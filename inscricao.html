@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaquejada Pro</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1><span><i class="bi bi-trophy Title"></i> Vaquejada Pro</span></h1>
+        <div class="menu">
+            <a href="index.html" class="menu-item"><i class="bi bi-house"></i> Início</a>
+            <a href="ranking.html" class="menu-item"><i class="bi bi-trophy"></i> Ranking</a>
+            <a href="eventos.html" class="menu-item"><i class="bi bi-calendar"></i> Eventos</a>
+            <a href="inscricao.html" class="menu-item-inscricao"><i class="bi bi-person-plus"></i> Inscrição</a>
+            <a href="login.html" class="menu-item"><i class="bi bi-arrow-right"></i> Entrar</a>
+        </div>
+    </div>
+
+    <div class="titulo-pagina">
+        <h2><i class="bi bi-person-plus"></i> Inscrição de Vaqueiro</h2>
+    </div>
+
+    <div class="steps">
+
+        <div class="step ativo" id="step1-ind">
+            <span>1</span>
+            <p>Dados Pessoais</p>
+        </div>
+
+        <div class="linha"></div>
+
+        <div class="step" id="step2-ind">
+            <span>2</span>
+            <p>Localização</p>
+        </div>
+
+        <div class="linha"></div>
+
+        <div class="step" id="step3-ind">
+            <span>3</span>
+            <p>Categoria</p>
+        </div>
+
+    </div>
+
+    <div class="form-container step-content ativo" id="step1">
+        <h3>DADOS PESSOAIS</h3>
+
+        <input type="text" placeholder="Digite seu nome completo">
+        <input type="text" placeholder="Como é conhecido na pista">
+        <input type="text" placeholder="(00) 00000-0000">
+
+        <div class="form-buttons">
+            <button disabled class="btn-voltar">Voltar</button>
+            <button type="button" onclick="nextStep(2)" class="btn-proximo">Próximo</button>
+        </div>
+    </div>
+
+    <div class="form-container step-content" id="step2">
+        <h3>LOCALIZAÇÃO</h3>
+
+        <label>Cidade *</label>
+        <input type="text" placeholder="Sua cidade">
+
+        <label>Estado</label>
+        <select>
+            <option>PB</option>
+            <option>PE</option>
+            <option>RN</option>
+            <option>CE</option>
+        </select>
+
+        <div class="form-buttons">
+            <button type="button" onclick="nextStep(1)" class="btn-voltar">Voltar</button>
+            <button type="button" onclick="nextStep(3)" class="btn-proximo">Próximo</button>
+        </div>
+    </div>
+
+    <div class="form-container step-content" id="step3">
+        <h3>CATEGORIA</h3>
+
+        <div class="categorias">
+            <div class="categoria-card ativo" onclick="selectCategoria(this)">
+                <h4>Puxador</h4>
+                <p>Puxa o boi pela cauda</p>
+            </div>
+
+            <div class="categoria-card" onclick="selectCategoria(this)">
+                <h4>Esteireiro</h4>
+                <p>Conduz o boi na esteira</p>
+            </div>
+        </div>
+
+        <div class="form-buttons">
+            <button type="button" onclick="nextStep(2)" class="btn-voltar">Voltar</button>
+            <button class="btn-proximo">Finalizar Inscrição</button>
+        </div>
+    </div>
+
+</body>
+</html>
