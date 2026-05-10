@@ -10,7 +10,7 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="navbar-container">
         <h1><span><i class="bi bi-trophy Title"></i> Vaquejada Pro</span></h1>
         <div class="menu">
             <a href="index.html" class="menu-item-inicio"><span><i class="bi bi-house incio"></i> Início</span></a>
@@ -29,11 +29,11 @@
         </p>
 
         <div class="botoes">
-            <a href="#" class="btn destaque">
+            <a href="ranking.html" class="btn destaque">
                 <i class="bi bi-trophy"></i> Ver Ranking
             </a>
 
-            <a href="#" class="btn outline">
+            <a href="inscricao.html" class="btn outline">
                 Inscrever-se
             </a>
         </div>
@@ -43,68 +43,10 @@
         <div class="container-central">
             <div class="ranking-topo">
                 <h2>Melhores Vaqueiros</h2>
-                <a href="#">Ver ranking completo →</a>
+                <a href="ranking.html">Ver ranking completo →</a>
             </div>
 
-            <div class="cards">
-                <div class="card">
-                    <span class="tag">PUXADOR</span>
-                    <h1 class="posicao">#1</h1>
-                    <p class="nome"><strong>João Silva</strong></p>
-                    <p>"Trovão"</p>
-                    <p class="local">Campina Grande, PB</p>
-
-                    <div class="info">
-                        <div>
-                            <strong>200</strong>
-                            <span>Pontos</span>
-                        </div>
-                        <div>
-                            <strong>2</strong>
-                            <span>Vitórias</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <span class="tag">ESTEREIRO</span>
-                    <h1 class="posicao">#2</h1>
-                    <p class="nome"><strong>João Silva</strong></p>
-                    <p>"Trovão"</p>
-                    <p class="local">Campina Grande, PB</p>
-
-                    <div class="info">
-                        <hr>
-                        <div>
-                            <strong>200</strong>
-                            <span>Pontos</span>
-                        </div>
-                        <div>
-                            <strong>2</strong>
-                            <span>Vitórias</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <span class="tag">ESTEREIRO</span>
-                    <h1 class="posicao">#3</h1>
-                    <p class="nome"><strong>João Silva</strong></p>
-                    <p>"Trovão"</p>
-                    <p class="local">Campina Grande, PB</p>
-
-                    <div class="info">
-                        <div>
-                            <strong>200</strong>
-                            <span>Pontos</span>
-                        </div>
-                        <div>
-                            <strong>2</strong>
-                            <span>Vitórias</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="cards" id="ranking-home"></div>
         </div>
     </div>
 
@@ -112,34 +54,19 @@
         <div class="container-central">
             <div class="eventos-topo">
                 <h2> Próximos Eventos </h2>
-                <a href="#"> Ver Todos → </a>
+                <a href="eventos.html"> Ver Todos → </a>
             </div>
 
-            <div class="boxes-container">
-                <div class="boxes">
-                    <p><span><i class="bi bi-calendar"></i> 14 de abril de 2026</span></p>
-                    <h3><strong>Copa Nordeste de Vaquejada</strong></h3>
-                    <p class="local">Campina Grande, PB</p>
-                </div>
-
-                <div class="boxes">
-                    <p><span><i class="bi bi-calendar"></i> 09 de maio de 2026</span></p>
-                    <h3><strong>Torneio do Agreste</strong></h3>
-                    <p class="local">Garanhuns, PE</p>
-                </div>
-
-                <div class="boxes">
-                    <p><span><i class="bi bi-calendar"></i> 19 de junho de 2026</span></p>
-                    <h3><strong>Grande Prêmio Baiano</strong></h3>
-                    <p class="local">Feira de Santana, BA</p>
-                </div>
-            </div>
+            <div class="boxes-container" id="eventos-home"></div>
         </div>
     </div>
 
     <div class="Informações">
         <p>© 2026 Vaquejada Pro. Todos os direitos reservados.</p>
     </div>
+
+    <script src="js/dados.js"></script>
+    <script src="js/home.js"></script>
   
 </body>
 </html>

@@ -10,7 +10,7 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="navbar-container">
         <h1><span><i class="bi bi-trophy Title"></i> Vaquejada Pro</span></h1>
         <div class="menu">
             <a href="index.html" class="menu-item"><span><i class="bi bi-house incio"></i> Início</span></a>
@@ -30,11 +30,12 @@
                 <i class="bi bi-google"></i> Entrar com Google
             </button>
             <div class="ou">OU</div>
-            <form>
+            <form onsubmit="fazerLogin(event)">
+                <p id="mensagem-login"></p>
                 <label>Email</label>
-                <input type="email" placeholder="seu@email.com">
+                <input type="email" id="email" placeholder="seu@email.com">
                 <label>Senha</label>
-                <input type="password" placeholder="********">
+                <input type="password" id="senha" placeholder="********">
                 <a href="#" class="esqueci">Esqueci minha senha</a>
                 <button type="submit" class="btn-entrar">
                     Entrar
@@ -47,5 +48,6 @@
         </div>
     </div>
 
+    <script src="js/login.js"></script>
 </body>
 </html>

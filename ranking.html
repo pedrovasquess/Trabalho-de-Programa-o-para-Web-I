@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="script.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="navbar-container">
         <h1><span><i class="bi bi-trophy Title"></i> Vaquejada Pro</span></h1>
         <div class="menu">
             <a href="index.html" class="menu-item"><span><i class="bi bi-house incio"></i> Início</span></a>
@@ -64,6 +63,16 @@
 
         </div>
 
+        <input 
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar vaqueiro..."
+        >
+
+        <button id="ordenar-pontos">
+            Ordenar por Pontos
+        </button>
+
         <table class="tabela">
             <thead>
                 <tr>
@@ -77,21 +86,13 @@
                 </tr>
             </thead>
 
-            <tbody>
-                <tr><td>1º</td><td>João Silva</td><td>Trovão</td><td>Campina Grande, PB</td><td>Puxador</td><td>200</td><td>2</td></tr>
-                <tr><td>2º</td><td>Rafael Costa</td><td>Touro</td><td>Juazeiro, BA</td><td>Esteireiro</td><td>150</td><td>1</td></tr>
-                <tr><td>3º</td><td>Pedro Santos</td><td>Raio</td><td>Caruaru, PE</td><td>Esteireiro</td><td>150</td><td>1</td></tr>
-                <tr><td>4º</td><td>Carlos Oliveira</td><td>Ventania</td><td>Mossoró, RN</td><td>Puxador</td><td>120</td><td>0</td></tr>
-                <tr><td>5º</td><td>Diego Alves</td><td>Cobra</td><td>Maceió, AL</td><td>Esteireiro</td><td>70</td><td>0</td></tr>
-                <tr><td>6º</td><td>Marcos Lima</td><td>Furacão</td><td>Feira de Santana, BA</td><td>Esteireiro</td><td>70</td><td>0</td></tr>
-                <tr><td>7º</td><td>Thiago Souza</td><td>Gavião</td><td>Aracaju, SE</td><td>Puxador</td><td>70</td><td>0</td></tr>
-                <tr><td>8º</td><td>Lucas Mendes</td><td>Relâmpago</td><td>Teresina, PI</td><td>Puxador</td><td>60</td><td>0</td></tr>
-                <tr><td>9º</td><td>Bruno Rocha</td><td>Falcão</td><td>Recife, PE</td><td>Esteireiro</td><td>50</td><td>0</td></tr>
-                <tr><td>10º</td><td>André Silva</td><td>Tempestade</td><td>Salvador, BA</td><td>Puxador</td><td>40</td><td>0</td></tr>
-            </tbody>
+            <tbody id="corpo-tabela"></tbody>
         </table>
 
     </div>
+
+    <script src="js/dados.js"></script>
+    <script src="js/rankings.js"></script>
 
 </body>
 </html>
