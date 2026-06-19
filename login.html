@@ -1,53 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaquejada Pro</title>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <title>Login - Vaquejada Pro</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar-container">
-        <h1><span><i class="bi bi-trophy Title"></i> Vaquejada Pro</span></h1>
-        <div class="menu">
-            <a href="index.html" class="menu-item"><span><i class="bi bi-house incio"></i> Início</span></a>
-            <a href="ranking.html" class="menu-item"><span><i class="bi bi-trophy subtitle"></i> Ranking</span></a>
-            <a href="eventos.html" class="menu-item"><span><i class="bi bi-calendar"></i> Eventos</span></a>
-            <a href="inscricao.html" class="menu-item"><span><i class="bi bi-person-plus"></i> Inscrição</span></a>
-            <a href="login.html" class="menu-item-login"><span><i class="bi bi-arrow-right"></i> Entrar</span></a>
+    <nav class="navbar-container">
+        <h1><a href="index.html" class="navbar-brand"><span><i class="bi bi-trophy Title"></i> Vaquejada Pro</span></a></h1>
+        <div class="navbar-actions">
+            <button class="tema-btn" id="tema-btn" type="button" aria-label="Alternar tema"><i class="bi bi-moon-stars"></i></button>
+            <button class="hamburger" id="hamburger-btn" type="button" aria-label="Abrir menu"><i class="bi bi-list"></i></button>
         </div>
-    </div>
+        <div class="menu" id="nav-menu">
+            <a href="index.html" class="menu-item" data-page="index"><span><i class="bi bi-house"></i> Início</span></a>
+            <a href="ranking.html" class="menu-item" data-page="ranking"><span><i class="bi bi-trophy"></i> Ranking</span></a>
+            <a href="eventos.html" class="menu-item" data-page="eventos"><span><i class="bi bi-calendar"></i> Eventos</span></a>
+            <a href="noticias.html" class="menu-item" data-page="noticias"><span><i class="bi bi-newspaper"></i> Notícias</span></a>
+            <a href="inscricao.html" class="menu-item" data-page="inscricao"><span><i class="bi bi-person-plus"></i> Inscrição</span></a>
+            <a href="login.html" class="menu-item" id="menu-login" data-page="login"><span><i class="bi bi-box-arrow-in-right"></i> Entrar</span></a>
+        </div>
+    </nav>
 
     <div class="login-container">
         <div class="login-box">
             <i class="bi bi-box-arrow-in-right icone-login"></i>
-            <h2>Entrar</h2>
-            <p>Acesse o painel administrativo</p>
-            <button class="btn-google">
-                <i class="bi bi-google"></i> Entrar com Google
-            </button>
-            <div class="ou">OU</div>
-            <form onsubmit="fazerLogin(event)">
-                <p id="mensagem-login"></p>
-                <label>Email</label>
-                <input type="email" id="email" placeholder="seu@email.com">
-                <label>Senha</label>
-                <input type="password" id="senha" placeholder="********">
-                <a href="#" class="esqueci">Esqueci minha senha</a>
-                <button type="submit" class="btn-entrar">
-                    Entrar
-                </button>
-            </form>
-            <p class="cadastro">
-                Não tem conta? <a href="#" class="conta">Criar conta</a>
-            </p>
+            <h2 id="titulo-login">Entrar</h2>
+            <p>Acesse sua conta para realizar inscrições.</p>
 
+            <div id="google-btn-container" class="google-btn-wrapper"></div>
+
+            <div class="ou">OU</div>
+
+            <form id="form-login" onsubmit="fazerLogin(event)">
+                <p id="mensagem-login"></p>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="seu@email.com" autocomplete="email">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="********" autocomplete="current-password">
+                <a href="#" class="esqueci" onclick="recuperarSenha(); return false;">Esqueci minha senha</a>
+                <button type="submit" class="btn-entrar">Entrar</button>
+            </form>
+
+            <div id="cadastro-box" style="display:none;">
+                <p id="mensagem-cadastro"></p>
+                <label for="cadastro-nome">Nome</label>
+                <input type="text" id="cadastro-nome" placeholder="Nome completo">
+                <label for="cadastro-email">Email</label>
+                <input type="email" id="cadastro-email" placeholder="seu@email.com">
+                <label for="cadastro-senha">Senha</label>
+                <input type="password" id="cadastro-senha" placeholder="Senha forte">
+                <input type="password" id="cadastro-confirmar-senha" placeholder="Confirmar senha">
+                <button type="button" class="btn-entrar" onclick="criarConta()">Criar Conta</button>
+                <p class="cadastro">Já possui conta? <a href="#" onclick="mostrarLogin(); return false;">Entrar</a></p>
+            </div>
+
+            <div id="reset-senha-box" style="display:none;">
+                <p id="mensagem-reset"></p>
+                <form onsubmit="redefinirSenha(event)">
+                    <label for="nova-senha">Nova senha</label>
+                    <input type="password" id="nova-senha" placeholder="Nova senha forte">
+                    <label for="confirmar-nova-senha">Confirmar nova senha</label>
+                    <input type="password" id="confirmar-nova-senha" placeholder="Confirmar senha">
+                    <button type="submit" class="btn-entrar">Redefinir Senha</button>
+                </form>
+            </div>
+
+            <p class="cadastro" id="link-cadastro">
+                Não tem conta? <a href="#" onclick="mostrarCadastro(); return false;">Criar conta</a>
+            </p>
         </div>
     </div>
 
+    <div class="modal fade" id="modal-recuperacao" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-key"></i> Recuperar Senha</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Informe seu email cadastrado. Enviaremos um link seguro para redefinição.</p>
+                    <label for="email-recuperacao">Email</label>
+                    <input type="email" id="email-recuperacao" class="form-control" placeholder="seu@email.com">
+                    <p id="mensagem-recuperacao" style="margin-top:10px;"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" id="btn-enviar-recuperacao">Enviar Link</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/email.js"></script>
     <script src="js/login.js"></script>
 </body>
 </html>

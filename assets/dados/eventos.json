@@ -1,0 +1,30 @@
+[
+  {
+    "nome": "Vaquejada de Campina Grande",
+    "data": "15/07/2026",
+    "local": "Parque do Povo, Campina Grande - PB",
+    "premio": "R$ 50.000",
+    "categoria": "Profissional"
+  },
+  {
+    "nome": "Vaquejada de Caruaru",
+    "data": "20/08/2026",
+    "local": "Estádio Luiz José de Lacerda, Caruaru - PE",
+    "premio": "R$ 30.000",
+    "categoria": "Amador"
+  },
+  {
+    "nome": "Copa Nordeste de Vaquejada",
+    "data": "10/09/2026",
+    "local": "Parque Luiz Campina, Ceará - CE",
+    "premio": "R$ 40.000",
+    "categoria": "Profissional"
+  },
+  {
+    "nome": "Vaquejada de Juazeiro",
+    "data": "25/10/2026",
+    "local": "Parque de Exposições, Juazeiro - BA",
+    "premio": "R$ 25.000",
+    "categoria": "Amador"
+  }
+]

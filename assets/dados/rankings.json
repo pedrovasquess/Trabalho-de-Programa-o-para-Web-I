@@ -1,0 +1,37 @@
+[
+  {
+    "nome": "João Silva",
+    "apelido": "João Veloz",
+    "cidade": "Campina Grande - PB",
+    "categoria": "Profissional",
+    "vitorias": 15
+  },
+  {
+    "nome": "Carlos Santos",
+    "apelido": "Carlinhos",
+    "cidade": "Caruaru - PE",
+    "categoria": "Profissional",
+    "vitorias": 12
+  },
+  {
+    "nome": "Pedro Alves",
+    "apelido": "Pedrão",
+    "cidade": "Juazeiro - BA",
+    "categoria": "Amador",
+    "vitorias": 10
+  },
+  {
+    "nome": "Lucas Lima",
+    "apelido": "Lukinha",
+    "cidade": "Mossoró - RN",
+    "categoria": "Amador",
+    "vitorias": 8
+  },
+  {
+    "nome": "Mateus Souza",
+    "apelido": "Mateusão",
+    "cidade": "Fortaleza - CE",
+    "categoria": "Profissional",
+    "vitorias": 7
+  }
+]

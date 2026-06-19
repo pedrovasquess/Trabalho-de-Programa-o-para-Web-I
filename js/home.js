@@ -1,127 +1,74 @@
+
 const rankingHome = document.getElementById("ranking-home");
-
-ranking.forEach(function(vaqueiro) {
-
-    vaqueiro.pontos = vaqueiro.vitorias * 200;
-
-});
-
-ranking.sort(function(a, b) {
-
-    return b.pontos - a.pontos;
-
-});
-
-ranking[0].pontos += 200;
-ranking[1].pontos += 150;
-ranking[2].pontos += 100;
-
-ranking.sort(function(a, b) {
-
-    return b.pontos - a.pontos;
-
-});
-
-const top3 = ranking.slice(0, 3);
-
-const ordemVisual = [
-    top3[1],
-    top3[0],
-    top3[2]
-];
-
-rankingHome.innerHTML = "";
-
-ordemVisual.forEach(function(vaqueiro, index) {
-
-    rankingHome.innerHTML += `
-
-        <div class="card">
-
-            <span class="tag">
-                ${vaqueiro.categoria}
-            </span>
-
-            <h1 class="posicao">
-                #${ranking.indexOf(vaqueiro) + 1}
-            </h1>
-
-            <p class="nome">
-                <strong>${vaqueiro.nome}</strong>
-            </p>
-
-            <p>
-                "${vaqueiro.apelido}"
-            </p>
-
-            <p class="local">
-                ${vaqueiro.cidade}
-            </p>
-
-            <div class="info">
-
-                <div>
-                    <strong>${vaqueiro.pontos}</strong>
-                    <span>Pontos</span>
-                </div>
-
-                <div>
-                    <strong>${vaqueiro.vitorias}</strong>
-                    <span>Vitórias</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
-
-});
-
 const eventosHome = document.getElementById("eventos-home");
 
-const eventosAtivos = eventos.filter(function(evento) {
+let ranking = [];
+let eventos = [];
 
-    return evento.status !== "Finalizado";
+function carregarRanking() {
+    const ordemVisual = RankingUtils.obterTop3(ranking);
+    const processado = RankingUtils.processarRanking(ranking);
 
-});
+    rankingHome.innerHTML = "";
 
-eventosAtivos.sort(function(a, b) {
+    ordemVisual.forEach(function (vaqueiro) {
+        const posicao = processado.findIndex(v => v.nome === vaqueiro.nome) + 1;
 
-    const dataA = b.data.split("/").reverse().join("-");
-    const dataB = a.data.split("/").reverse().join("-");
+        rankingHome.innerHTML += `
+            <div class="card">
+                <span class="tag">${Security.escaparHTML(vaqueiro.categoria)}</span>
+                <h1 class="posicao">#${posicao}</h1>
+                <p class="nome"><strong>${Security.escaparHTML(vaqueiro.nome)}</strong></p>
+                <p>"${Security.escaparHTML(vaqueiro.apelido)}"</p>
+                <p class="local">${Security.escaparHTML(vaqueiro.cidade)}</p>
+                <div class="info">
+                    <div><strong>${vaqueiro.pontos}</strong><span>Pontos</span></div>
+                    <div><strong>${vaqueiro.vitorias}</strong><span>Vitórias</span></div>
+                </div>
+            </div>
+        `;
+    });
+}
 
-    return new Date(dataA) - new Date(dataB);
+function carregarEventos() {
+    const hoje = new Date();
 
-});
+    const eventosAtivos = eventos.filter(function (evento) {
+        const [dia, mes, ano] = evento.data.split("/");
+        const dataEvento = new Date(ano, mes - 1, dia);
+        return dataEvento >= hoje;
+    });
 
-const proximosEventos = eventosAtivos.slice(0, 3);
+    eventosAtivos.sort(function (a, b) {
+        const [diaA, mesA, anoA] = a.data.split("/");
+        const [diaB, mesB, anoB] = b.data.split("/");
+        return new Date(anoA, mesA - 1, diaA) - new Date(anoB, mesB - 1, diaB);
+    });
 
-eventosHome.innerHTML = "";
+    const proximosEventos = eventosAtivos.slice(0, 3);
+    eventosHome.innerHTML = "";
 
-proximosEventos.forEach(function(evento) {
+    proximosEventos.forEach(function (evento) {
+        eventosHome.innerHTML += `
+            <div class="boxes">
+                <p><span><i class="bi bi-calendar"></i> ${Security.escaparHTML(evento.data)}</span></p>
+                <h3><strong>${Security.escaparHTML(evento.nome)}</strong></h3>
+                <p class="local">${Security.escaparHTML(evento.local)}</p>
+            </div>
+        `;
+    });
+}
 
-    eventosHome.innerHTML += `
-
-        <div class="boxes">
-
-            <p>
-                <span>
-                    <i class="bi bi-calendar"></i>
-                    ${evento.data}
-                </span>
-            </p>
-
-            <h3>
-                <strong>${evento.nome}</strong>
-            </h3>
-
-            <p class="local">
-                ${evento.local}
-            </p>
-
-        </div>
-
-    `;
-
+Promise.all([
+    fetch("assets/dados/rankings.json").then(res => res.json()),
+    fetch("assets/dados/eventos.json").then(res => res.json())
+])
+.then(function ([rankingData, eventosData]) {
+    ranking = rankingData;
+    eventos = eventosData;
+    carregarRanking();
+    carregarEventos();
+})
+.catch(function (error) {
+    console.error("Erro ao carregar dados:", error);
 });

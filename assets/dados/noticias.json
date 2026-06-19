@@ -1,0 +1,31 @@
+[
+  {
+    "titulo": "Grande Vaquejada de Campina Grande movimenta o Nordeste",
+    "resumo": "Competidores de diversos estados participam da maior vaquejada da região.",
+    "imagem": "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+    "tipo": "manchete"
+  },
+
+  {
+    "titulo": "Premiação recorde anunciada para 2026",
+    "resumo": "Evento distribuirá mais de R$ 100 mil em premiações.",
+    "imagem": "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+    "tipo": "normal"
+  },
+
+  {
+    "titulo": "Ranking Nacional recebe atualização",
+    "resumo": "Novos líderes assumem as primeiras posições.",
+    "imagem": "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    "tipo": "normal"
+  },
+
+  {
+    "titulo": "Novos talentos ganham destaque",
+    "resumo": "Jovens competidores chamam atenção nas arenas.",
+    "imagem": "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    "tipo": "normal"
+  }
+]
+
+
