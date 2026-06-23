@@ -38,11 +38,16 @@ const RankingUtils = {
 
         const processado = this.processarRanking(ranking);
         const top3 = processado.slice(0, 3);
+        /* Ordem visual: 2º à esquerda, 1º ao centro, 3º à direita */
         const ordemVisual = top3.length >= 3
             ? [top3[1], top3[0], top3[2]]
             : top3;
 
-        const classes = ["destaque", "primeiro", "destaque"];
+        /* Classes por posição visual (index 0=2º, 1=1º, 2=3º) */
+        const classes = ["segundo", "primeiro", "terceiro"];
+
+        /* Ícones de medalha */
+        const medalhas = { 1: "🥇", 2: "🥈", 3: "🥉" };
 
         container.innerHTML = "";
 
@@ -55,7 +60,7 @@ const RankingUtils = {
 
             container.innerHTML += `
                 <div class="card ${classeCard}">
-                    <h3>#${posicao}</h3>
+                    <h3>${medalhas[posicao] || "#" + posicao}</h3>
                     <p><strong>${Security.escaparHTML(vaqueiro.nome)}</strong></p>
                     <span>"${Security.escaparHTML(vaqueiro.apelido)}"</span>
                     <p>${Security.escaparHTML(vaqueiro.cidade)}</p>

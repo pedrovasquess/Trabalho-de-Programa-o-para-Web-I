@@ -42,7 +42,8 @@ const Navbar = {
         const sessao = await Session.obterSessao();
 
         if (sessao) {
-            menuLogin.innerHTML = `<span><i class="bi bi-box-arrow-right"></i> Sair (${Security.escaparHTML(sessao.nome)})</span>`;
+            const primeiroNome = Security.escaparHTML(sessao.nome.split(" ")[0]);
+            menuLogin.innerHTML = `<span><i class="bi bi-box-arrow-right"></i> Sair (${primeiroNome})</span>`;
             menuLogin.href = "#";
             menuLogin.onclick = logout;
         } else {

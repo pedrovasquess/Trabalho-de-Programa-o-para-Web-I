@@ -1,4 +1,29 @@
+/* =============================================
+   Alternar visibilidade da senha (ícone olho)
+   ============================================= */
+function alternarSenha(idCampo, botao) {
+    const campo = document.getElementById(idCampo);
+    if (!campo) return;
+    const icone = botao.querySelector("i");
+    if (campo.type === "password") {
+        campo.type = "text";
+        if (icone) {
+            icone.classList.remove("bi-eye");
+            icone.classList.add("bi-eye-slash");
+        }
+        botao.setAttribute("aria-label", "Ocultar senha");
+    } else {
+        campo.type = "password";
+        if (icone) {
+            icone.classList.remove("bi-eye-slash");
+            icone.classList.add("bi-eye");
+        }
+        botao.setAttribute("aria-label", "Mostrar senha");
+    }
+}
+
 const AuthStore = {
+
 
     obterUsuarios() {
         return JSON.parse(localStorage.getItem("usuarios") || "[]");

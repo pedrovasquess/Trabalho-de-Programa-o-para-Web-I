@@ -11,13 +11,18 @@ function carregarRanking() {
 
     rankingHome.innerHTML = "";
 
-    ordemVisual.forEach(function (vaqueiro) {
+    /* Ordem visual: [2º, 1º, 3º] — classes por posição visual */
+    const classesVisuais = ["card-segundo", "card-primeiro", "card-terceiro"];
+    const medalhas = { 1: "🥇", 2: "🥈", 3: "🥉" };
+
+    ordemVisual.forEach(function (vaqueiro, i) {
         const posicao = processado.findIndex(v => v.nome === vaqueiro.nome) + 1;
+        const classeCard = ordemVisual.length >= 3 ? classesVisuais[i] : "";
 
         rankingHome.innerHTML += `
-            <div class="card">
+            <div class="card ${classeCard}">
                 <span class="tag">${Security.escaparHTML(vaqueiro.categoria)}</span>
-                <h1 class="posicao">#${posicao}</h1>
+                <h1 class="posicao">${medalhas[posicao] || "#" + posicao}</h1>
                 <p class="nome"><strong>${Security.escaparHTML(vaqueiro.nome)}</strong></p>
                 <p>"${Security.escaparHTML(vaqueiro.apelido)}"</p>
                 <p class="local">${Security.escaparHTML(vaqueiro.cidade)}</p>

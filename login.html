@@ -42,7 +42,12 @@
                 <label for="email">Email</label>
                 <input type="email" id="email" placeholder="seu@email.com" autocomplete="email">
                 <label for="senha">Senha</label>
-                <input type="password" id="senha" placeholder="********" autocomplete="current-password">
+                <div class="campo-senha-wrapper">
+                    <input type="password" id="senha" placeholder="********" autocomplete="current-password">
+                    <button type="button" class="btn-olho-senha" onclick="alternarSenha('senha', this)" aria-label="Mostrar senha">
+                        <i class="bi bi-eye"></i>
+                    </button>
+                </div>
                 <a href="#" class="esqueci" onclick="recuperarSenha(); return false;">Esqueci minha senha</a>
                 <button type="submit" class="btn-entrar">Entrar</button>
             </form>
@@ -54,8 +59,19 @@
                 <label for="cadastro-email">Email</label>
                 <input type="email" id="cadastro-email" placeholder="seu@email.com">
                 <label for="cadastro-senha">Senha</label>
-                <input type="password" id="cadastro-senha" placeholder="Senha forte">
-                <input type="password" id="cadastro-confirmar-senha" placeholder="Confirmar senha">
+                <div class="campo-senha-wrapper">
+                    <input type="password" id="cadastro-senha" placeholder="Senha forte">
+                    <button type="button" class="btn-olho-senha" onclick="alternarSenha('cadastro-senha', this)" aria-label="Mostrar senha">
+                        <i class="bi bi-eye"></i>
+                    </button>
+                </div>
+                <label for="cadastro-confirmar-senha">Confirmar Senha</label>
+                <div class="campo-senha-wrapper">
+                    <input type="password" id="cadastro-confirmar-senha" placeholder="Confirmar senha">
+                    <button type="button" class="btn-olho-senha" onclick="alternarSenha('cadastro-confirmar-senha', this)" aria-label="Mostrar senha">
+                        <i class="bi bi-eye"></i>
+                    </button>
+                </div>
                 <button type="button" class="btn-entrar" onclick="criarConta()">Criar Conta</button>
                 <p class="cadastro">Já possui conta? <a href="#" onclick="mostrarLogin(); return false;">Entrar</a></p>
             </div>
@@ -64,9 +80,19 @@
                 <p id="mensagem-reset"></p>
                 <form onsubmit="redefinirSenha(event)">
                     <label for="nova-senha">Nova senha</label>
-                    <input type="password" id="nova-senha" placeholder="Nova senha forte">
+                    <div class="campo-senha-wrapper">
+                        <input type="password" id="nova-senha" placeholder="Nova senha forte">
+                        <button type="button" class="btn-olho-senha" onclick="alternarSenha('nova-senha', this)" aria-label="Mostrar senha">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
                     <label for="confirmar-nova-senha">Confirmar nova senha</label>
-                    <input type="password" id="confirmar-nova-senha" placeholder="Confirmar senha">
+                    <div class="campo-senha-wrapper">
+                        <input type="password" id="confirmar-nova-senha" placeholder="Confirmar senha">
+                        <button type="button" class="btn-olho-senha" onclick="alternarSenha('confirmar-nova-senha', this)" aria-label="Mostrar senha">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
                     <button type="submit" class="btn-entrar">Redefinir Senha</button>
                 </form>
             </div>
@@ -76,6 +102,7 @@
             </p>
         </div>
     </div>
+
 
     <div class="modal fade" id="modal-recuperacao" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">

@@ -33,20 +33,21 @@ body{
         font-style: arial;
         font-family: 'Times New Roman', Times, serif;
         font-size: 24px;
-        align-self: flex-start;
-        margin-left: 10px; 
         align-self: center;
+        margin-left: 0px;
+        margin-right: 0px;
+        white-space: nowrap;
         }
 
         .menu {
-        margin-right: 20px; 
+        margin-right: 0px; 
+        margin-left: auto;
         color: white;
         font-family: 'Times New Roman', Times, serif;
         font-size: 18px;
-        max-width: 600px;
         display: flex;
         align-items: center;
-        gap: 5px; ;
+        gap: 5px;
         }
 
         .menu-item {
@@ -55,10 +56,9 @@ body{
         padding: 8px 12px;
         border-radius: 6px;
         transition: 0.3s;
-
         display: flex;
         align-self: center;
-             
+        white-space: nowrap;
         }
 
         .menu-item:hover {
@@ -66,9 +66,14 @@ body{
         color: white;
         }
         
-        .menu-item-inicio {
-        color: #d78c09;
-        
+        .menu-item-inicio,
+        .menu-item-ranking,
+        .menu-item-eventos,
+        .menu-item-noticias,
+        .menu-item-inscricao,
+        .menu-item-login {
+            color: #d78c09 !important;
+            font-weight: bold;
         }
 
         .menu span {
@@ -82,7 +87,6 @@ body{
             padding-right: 0px;
         }
 
-
         
     }
         
@@ -94,7 +98,7 @@ body{
         justify-content: center; 
         align-items: center;     
         text-align: center;
-        background-image: linear-gradient(135deg, #1f2937 0%, #374151 50%, #1f2937 100%), url('assets/img/Logo-Vaquejada-top.jpeg');
+        background-image: url('assets/img/Logo-Vaquejada-top.jpeg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -106,6 +110,8 @@ body{
             margin-top: 40px;
             margin-bottom: 10px;
             text-transform: uppercase;
+            position: relative;
+            z-index: 1;
         }
 
         p {
@@ -113,22 +119,8 @@ body{
             font-size: 18px;
             max-width: 600px;
             font-weight: 500;
-        }
-
-        .logo h2, .logo p {
             position: relative;
             z-index: 1;
-        }
-
-        .logo::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-
-        background: rgba(0, 0, 0, 0.5); 
         }
 
         .botoes {
@@ -136,6 +128,8 @@ body{
         gap: 20px;
         justify-content: center; 
         margin-top: 20px;
+        position: relative;
+        z-index: 1;
         }
 
         .destaque {
@@ -164,6 +158,16 @@ body{
         }
     }
 
+    .logo::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 0;
+    }
 
 
     .ranking {
@@ -215,15 +219,40 @@ body{
             display: flex;
             gap: 20px;
             justify-content: space-between;
+            align-items: flex-end; /* cria efeito de pódio */
+            padding-bottom: 20px;
         }
 
+        /* Cards da home com classes de pódio */
         .card {
             background: white;
             padding: 25px;
             border-radius: 10px;
             flex: 1;
             border: 2px solid #d89c00;
-            
+        }
+
+        /* 1º lugar (centro) */
+        .card.card-primeiro {
+            border-color: #f59e0b;
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.35);
+            transform: translateY(-18px);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 2º lugar (esquerda — visual) */
+        .card.card-segundo {
+            border-color: #9ca3af;
+            box-shadow: 0 5px 20px rgba(156, 163, 175, 0.30);
+            transform: translateY(-8px);
+        }
+
+        /* 3º lugar (direita) */
+        .card.card-terceiro {
+            border-color: #cd7f32;
+            box-shadow: 0 4px 15px rgba(205, 127, 50, 0.25);
+            transform: translateY(0);
         }
 
         .info {
@@ -390,6 +419,13 @@ body{
         margin: 6px 0 12px;
         border: 1px solid #ddd;
         border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    /* Dentro do wrapper de senha, o input não precisa de width 100% pois o flex cuida */
+    .login-box .campo-senha-wrapper input {
+        width: auto;
+        margin: 6px 0 12px;
     }
 
     .esqueci {
@@ -452,6 +488,8 @@ body{
         grid-template-columns: 1fr 1.2fr 1fr;
         gap: 25px;
         margin-bottom: 40px;
+        align-items: flex-end;
+        padding-bottom: 20px;
     }
 
 
@@ -459,13 +497,34 @@ body{
         background: #fff;
         border-radius: 12px;
         padding: 20px;
-        border: 2px solid #f59e0b;
+        border: 2px solid #f59e0b; /* ouro padrão */
         position: relative;
+        transition: transform 0.3s, box-shadow 0.3s;
     }
 
-
+    /* Pódio — 1º lugar: ouro, maior */
     .card.primeiro {
-        transform: scale(1.05);
+        border-color: #f59e0b;
+        box-shadow: 0 8px 30px rgba(245, 158, 11, 0.35);
+        transform: translateY(-18px) scale(1.04);
+        z-index: 2;
+    }
+
+    /* Pódio — 2º lugar: prata, altura média */
+    .card.segundo,
+    .card.destaque:first-child {
+        border-color: #9ca3af;
+        box-shadow: 0 5px 20px rgba(156, 163, 175, 0.30);
+        transform: translateY(-8px);
+        z-index: 1;
+    }
+
+    /* Pódio — 3º lugar: bronze */
+    .card.terceiro,
+    .card.destaque:last-child {
+        border-color: #cd7f32;
+        box-shadow: 0 4px 15px rgba(205, 127, 50, 0.25);
+        transform: translateY(0);
     }
 
 
@@ -561,8 +620,15 @@ body{
             grid-template-columns: 1fr;
         }
 
-        .card.primeiro {
-            transform: none;
+        .card.primeiro,
+        .card.segundo,
+        .card.destaque,
+        .card.terceiro,
+        .card.card-primeiro,
+        .card.card-segundo,
+        .card.card-terceiro {
+            transform: none !important;
+            box-shadow: none;
         }
     }
 
@@ -1077,7 +1143,8 @@ body{
     align-items: center;
     gap: 8px;
     margin-left: auto;
-    margin-right: 10px;
+    margin-right: 5px;
+    order: 0;
 }
 
 .tema-btn,
@@ -1233,36 +1300,262 @@ body{
     to { transform: rotate(360deg); }
 }
 
-.tema-escuro .card,
-.tema-escuro .evento-card,
-.tema-escuro .form-container,
-.tema-escuro .login-box,
-.tema-escuro .card-noticia,
-.tema-escuro .video-destaque,
-.tema-escuro .boxes {
-    background: #1e1e1e;
+/* ========================
+   DARK MODE — Tema Escuro
+   ======================== */
+
+/* Corpo geral */
+.tema-escuro {
+    background: #0f1117;
     color: #e5e7eb;
-    border-color: #374151;
 }
 
-.tema-escuro .tabela {
-    background: #1e1e1e;
-}
-
-.tema-escuro .tabela td {
-    color: #d1d5db;
-    border-color: #374151;
-}
-
-.tema-escuro .titulo-pagina,
-.tema-escuro .Title-evento {
-    background: #1a1a1a;
-    border-color: #374151;
-}
-
+/* Navbar */
 .tema-escuro .navbar-container {
     background-color: #111827;
+    border-bottom: 1px solid #1f2937;
 }
+
+/* Seções da Index */
+.tema-escuro .ranking {
+    background-color: #161b27;
+}
+.tema-escuro .eventos {
+    background-color: #111520;
+}
+.tema-escuro .ranking-topo h2,
+.tema-escuro .eventos-topo h2 {
+    color: #e5e7eb;
+}
+
+/* Cards universais */
+.tema-escuro .card,
+.tema-escuro .evento-card,
+.tema-escuro .boxes,
+.tema-escuro .card-noticia,
+.tema-escuro .video-destaque,
+.tema-escuro .inscricao-item {
+    background: #1e2433;
+    color: #e5e7eb;
+    border-color: #2d3748;
+}
+
+/* Card de ranking */
+.tema-escuro .card p strong { color: #f3f4f6; }
+.tema-escuro .card span     { color: #9ca3af; }
+.tema-escuro .card p        { color: #9ca3af; }
+.tema-escuro .card hr       { border-color: #374151; }
+.tema-escuro .tag {
+    background: #374151;
+    color: #d1d5db;
+}
+
+/* Preserva bordas de pódio no dark mode */
+.tema-escuro .card.primeiro,
+.tema-escuro .card.card-primeiro {
+    border-color: #f59e0b !important;
+    background: #1e2433;
+}
+.tema-escuro .card.segundo,
+.tema-escuro .card.destaque:first-child,
+.tema-escuro .card.card-segundo {
+    border-color: #9ca3af !important;
+    background: #1e2433;
+}
+.tema-escuro .card.terceiro,
+.tema-escuro .card.destaque:last-child,
+.tema-escuro .card.card-terceiro {
+    border-color: #cd7f32 !important;
+    background: #1e2433;
+}
+
+/* Evento card */
+.tema-escuro .evento-card h3    { color: #f3f4f6; }
+.tema-escuro .evento-card p     { color: #9ca3af; }
+.tema-escuro .evento-card span  { color: #d1d5db; }
+
+/* Boxes (home eventos) */
+.tema-escuro .boxes p           { color: #d97706; }
+.tema-escuro .boxes h3          { color: #f3f4f6; }
+.tema-escuro .boxes .local      { color: #9ca3af; }
+
+/* Tabela ranking */
+.tema-escuro .tabela {
+    background: #1e2433;
+}
+.tema-escuro .tabela thead {
+    background-color: #0f1117;
+}
+.tema-escuro .tabela td {
+    color: #d1d5db;
+    border-color: #2d3748;
+}
+.tema-escuro .tabela tbody tr:hover {
+    background-color: #252b3b;
+}
+.tema-escuro .ranking-container h2 { color: #e5e7eb; }
+
+/* Título de página (inscrição, ranking, noticias) */
+.tema-escuro .titulo-pagina {
+    background: #161b27;
+    border-color: #2d3748;
+}
+.tema-escuro .titulo-pagina h2 { color: #e5e7eb; }
+
+/* Título de eventos */
+.tema-escuro .Title-evento {
+    background: #161b27;
+    border-color: #2d3748;
+}
+.tema-escuro .Title-evento h2 { color: #e5e7eb; }
+.tema-escuro .Title-evento input {
+    background: #1e2433;
+    border-color: #374151;
+    color: #e5e7eb;
+}
+
+/* Formulário de inscrição */
+.tema-escuro .form-container {
+    background: #1e2433;
+    color: #e5e7eb;
+    border-color: #2d3748;
+}
+.tema-escuro .form-container h3    { color: #e5e7eb; }
+.tema-escuro .form-container label { color: #d1d5db; }
+.tema-escuro .form-container input,
+.tema-escuro .form-container select {
+    background: #252b3b;
+    border-color: #374151;
+    color: #e5e7eb;
+}
+.tema-escuro .form-container input::placeholder { color: #6b7280; }
+
+/* Steps inscrição */
+.tema-escuro .step { color: #9ca3af; }
+.tema-escuro .step span { background: #374151; color: #9ca3af; }
+.tema-escuro .step.ativo { color: #e5e7eb; }
+.tema-escuro .linha { background: #374151; }
+
+/* Categoria cards */
+.tema-escuro .categoria-card {
+    border-color: #374151;
+    color: #e5e7eb;
+}
+.tema-escuro .categoria-card h4 { color: #e5e7eb; }
+.tema-escuro .categoria-card p  { color: #9ca3af; }
+.tema-escuro .categoria-card.ativo {
+    border-color: #f59e0b;
+    background: #292115;
+}
+
+/* Login box */
+.tema-escuro .login-box {
+    background: #1e2433;
+    color: #e5e7eb;
+    border: 1px solid #2d3748;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+.tema-escuro .login-box h2 { color: #e5e7eb; }
+.tema-escuro .login-box p  { color: #9ca3af; }
+.tema-escuro .login-box input {
+    background: #252b3b;
+    border-color: #374151;
+    color: #e5e7eb;
+}
+.tema-escuro .login-box input::placeholder { color: #6b7280; }
+.tema-escuro .login-container { background: #0f1117; }
+
+/* Modal Bootstrap — dark mode */
+.tema-escuro .modal-content {
+    background: #1e2433;
+    color: #e5e7eb;
+    border-color: #2d3748;
+}
+.tema-escuro .modal-header {
+    background: #161b27;
+    border-color: #2d3748;
+}
+.tema-escuro .modal-header .modal-title { color: #e5e7eb; }
+.tema-escuro .modal-footer {
+    background: #161b27;
+    border-color: #2d3748;
+}
+.tema-escuro .modal-body {
+    background: #1e2433;
+    color: #e5e7eb;
+}
+.tema-escuro .modal-body p      { color: #d1d5db; }
+.tema-escuro .modal-body strong { color: #f3f4f6; }
+.tema-escuro .btn-close {
+    filter: invert(1);
+}
+
+/* Notícias */
+.tema-escuro .card-noticia {
+    background: #1e2433;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.tema-escuro .conteudo-noticia h3    { color: #e5e7eb; }
+.tema-escuro .conteudo-noticia p     { color: #9ca3af; }
+.tema-escuro .video-destaque h2      { color: #e5e7eb; }
+.tema-escuro .video-destaque         { background: #1e2433; }
+
+/* Inscrição aviso */
+.tema-escuro .inscricao-aviso .evento-card { background: #1e2433; color: #e5e7eb; }
+.tema-escuro .badge-status { background: #292115; color: #f59e0b; }
+.tema-escuro .btn-cancelar { background: #3b1515; color: #f87171; }
+.tema-escuro .btn-voltar {
+    background: #252b3b;
+    color: #d1d5db;
+}
+
+/* Rodapé */
+.tema-escuro .Informações { background: #060b14; }
+
+/* Busca evento input */
+.tema-escuro #pesquisa-evento {
+    background: #1e2433;
+    border-color: #374151;
+    color: #e5e7eb;
+}
+
+/* Ranking controles */
+.tema-escuro .ranking-controles input {
+    background: #1e2433;
+    border-color: #374151;
+    color: #e5e7eb;
+}
+
+/* ========================
+   BOTÃO OLHO — Senha
+   ======================== */
+.campo-senha-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.campo-senha-wrapper input {
+    flex: 1;
+    padding-right: 44px !important;
+}
+.btn-olho-senha {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #9ca3af;
+    font-size: 18px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+    z-index: 2;
+}
+.btn-olho-senha:hover { color: #f59e0b; }
+.tema-escuro .btn-olho-senha { color: #6b7280; }
+.tema-escuro .btn-olho-senha:hover { color: #f59e0b; }
+
 
 @media (max-width: 900px) {
     .hamburger {

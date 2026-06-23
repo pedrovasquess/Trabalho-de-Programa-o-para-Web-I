@@ -38,9 +38,7 @@ const Security = {
         );
 
         const saltB64 = btoa(String.fromCharCode(...salt));
-        const hashB64 = btoa(
-            String.fromCharCode(...new Uint8Array(hashBuffer))
-        );
+        const hashB64 = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)));
 
         return saltB64 + ":" + hashB64;
     },

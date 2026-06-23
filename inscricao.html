@@ -72,11 +72,12 @@
         <div class="form-container step-content" id="step2">
             <h3><i class="bi bi-person"></i> DADOS PESSOAIS</h3>
             <label for="nome">Nome completo *</label>
-            <input type="text" id="nome" placeholder="Digite seu nome completo">
+            <input type="text" id="nome" placeholder="Ex: João da Silva Santos">
             <label for="apelido">Apelido na pista *</label>
             <input type="text" id="apelido" placeholder="Como é conhecido na pista">
             <label for="telefone">Telefone *</label>
-            <input type="tel" id="telefone" placeholder="(00) 00000-0000">
+            <input type="tel" id="telefone" placeholder="(00) 99999-9999" maxlength="15"
+                oninput="mascararTelefone(this)">
             <div class="form-buttons">
                 <button type="button" onclick="irParaStep(1)" class="btn-voltar">Voltar</button>
                 <button type="button" onclick="validarStep2()" class="btn-proximo">Próximo</button>
@@ -85,21 +86,19 @@
 
         <div class="form-container step-content" id="step3">
             <h3><i class="bi bi-geo-alt"></i> LOCALIZAÇÃO</h3>
-            <label for="cidade">Cidade *</label>
-            <input type="text" id="cidade" placeholder="Sua cidade">
-            <label for="estado">Estado</label>
-            <select id="estado">
-                <option value="PB">PB</option>
-                <option value="PE">PE</option>
-                <option value="RN">RN</option>
-                <option value="CE">CE</option>
-                <option value="BA">BA</option>
+            <label for="estado">Estado *</label>
+            <select id="estado" onchange="atualizarCidadesDatalist()">
+                <option value="">Carregando estados...</option>
             </select>
+            <label for="cidade">Cidade *</label>
+            <input type="text" id="cidade" placeholder="Selecione o estado primeiro" list="lista-cidades-datalist" autocomplete="off">
+            <datalist id="lista-cidades-datalist"></datalist>
             <div class="form-buttons">
                 <button type="button" onclick="irParaStep(2)" class="btn-voltar">Voltar</button>
                 <button type="button" onclick="validarStep3()" class="btn-proximo">Próximo</button>
             </div>
         </div>
+
 
         <div class="form-container step-content" id="step4">
             <h3><i class="bi bi-award"></i> CATEGORIA E FUNÇÃO</h3>
@@ -166,6 +165,7 @@
     <script src="js/theme.js"></script>
     <script src="js/protecao.js"></script>
     <script src="js/email.js"></script>
+    <script src="js/ibge.js"></script>
     <script src="js/inscricao.js"></script>
 </body>
 </html>
